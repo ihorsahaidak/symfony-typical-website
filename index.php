@@ -1,54 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
-    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Routing in PHP</title>
 </head>
 <body>
 
+<h1>Simple Routing in PHP</h1>
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/rss">Rss</a></li>
+</ul>
+<?php
+include ('route.php');
+include ('Controllers/AboutController.php');
+include ('Controllers/HomeController.php');
+include ('Controllers/RssController.php');
 
+$route = new Route();
 
-    <?php
+$route->add('/', 'HomeController');
+$route->add('/about', 'AboutController');
+$route->add('/rss', 'RssController');
 
-
-
-
-
-    $client_id = '5946229'; // ID приложения
-    $client_secret = 'fK9CJ8ugScLqf4STVoWN'; // Защищённый ключ
-    $redirect_uri = 'http://comments.local/'; // Адрес сайта
-
-    $url = 'http://oauth.vk.com/authorize';
-
-    $params = array(
-        'client_id'     => $client_id,
-        'redirect_uri'  => $redirect_uri,
-        'response_type' => 'code',
-        'scope' => 'wall',
-        'display'=>'page'
-    );
-
-    echo $link = '<p><a href="https://oauth.vk.com/authorize?client_id=5946229&display=page&redirect_uri=https://oauth.vk.com/blank.html&display=page&scope=messages,offline&response_type=code&v=5.37">ВКонтакте</a></p>';
-
-
-
-
-
-if (isset($_GET['code'])) {
-    $result = false;
-    $params = array(
-        'client_id' => $client_id,
-        'client_secret' => $client_secret,
-        'code' => $_GET['code'],
-        'redirect_uri' => $redirect_uri
-    );
-
-    $token = json_decode(file_get_contents('https://oauth.vk.com/access_token?client_id='.$params['client_id'].'&client_secret='.$params['client_secret'].'&redirect_uri=https://oauth.vk.com/blank.html&code='.$params['code']), true);
-
-    
-echo "string";
-}
+$route->action();
 ?>
+Виконав <a href="https://www.linkedin.com/in/thesagaydak" target="_blank">Сагайдак Ігор</a> для тестового завдання ООО "УкрТех-ИНФО"
+<br>
+// Час виконання тестового завдання 75 хв
 </body>
 </html>

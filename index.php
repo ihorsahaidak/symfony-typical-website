@@ -11,9 +11,10 @@
 
 <h1>Simple Routing in PHP</h1>
 <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/rss">Rss</a></li>
+    <li><a href="/index/index">Home // index</a></li>
+    <li><a href="/index/mine">Home // mine</a></li>
+    <li><a href="/about/list">About //list</a></li>
+    <li><a href="/rss/news">Rss //news</a></li>
 </ul>
 <?php
 include ('route.php');
@@ -23,9 +24,10 @@ include ('Controllers/RssController.php');
 
 $route = new Route();
 
-$route->add('/', 'HomeController');
-$route->add('/about', 'AboutController');
-$route->add('/rss', 'RssController');
+$route->add('/index/index', 'HomeController', 'index');
+$route->add('/index/mine', 'HomeController', 'mine');
+$route->add('/about/list', 'AboutController', 'list');
+$route->add('/rss/news', 'RssController', 'news');
 
 $route->action();
 ?>

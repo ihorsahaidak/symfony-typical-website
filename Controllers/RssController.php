@@ -3,8 +3,8 @@
 
 class RssController
 {
-    public function __construct()
+    public function news()
     {
-        echo '<h3>Hello from RssController</h3>';
+        echo '<h3>Hello from news method //RssController</h3>';
     }
 }

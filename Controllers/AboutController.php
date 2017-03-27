@@ -2,8 +2,8 @@
 
 class AboutController
 {
-    public function __construct()
+    public function list()
     {
-        echo '<h3>Hello from AboutController</h3>';
+        echo '<h3>Hello from list method //AboutController</h3>';
     }
 }

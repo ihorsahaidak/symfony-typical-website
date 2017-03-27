@@ -3,8 +3,15 @@
 
 class HomeController
 {
-    public function __construct()
+
+
+    public function index()
     {
-        echo '<h3>Hello from HomeController</h3>';
+        echo '<h3>Hello from Index Method //HomeController</h3>';
+    }
+
+    public function mine()
+    {
+        echo '<h3>Hello from Mine Method //HomeController</h3>';
     }
 }

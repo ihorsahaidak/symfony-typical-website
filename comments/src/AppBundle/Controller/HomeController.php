@@ -16,4 +16,5 @@ class HomeController extends Controller
         die('1');
         return 1;
     }
+
 }
